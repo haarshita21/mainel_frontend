@@ -1,3 +1,5 @@
+#how is works
+run npm run dev in urbantriage folder, testing contains images only
 # 🚨 UrbanTriage
 - Predictive Waste Mapping and Secure Clearance Verification System
 - An AI-verified, closed-loop platform enabling corporations to transparently fund, track, and prove the true community impact of their ESG and CSR investments.
