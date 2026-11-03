@@ -1,7 +1,6 @@
 # 🚨 UrbanTriage
 - Predictive Waste Mapping and Secure Clearance Verification System
 - An AI-verified, closed-loop platform enabling corporations to transparently fund, track, and prove the true community impact of their ESG and CSR investments.
-- Built for Argonyx '26 under the theme Intelligent Threat Detection and Situational Awareness System (Aligned with UN SDG 11 – Sustainable Cities and Communities).
 
 # 🌍 The Problem
 Unmanaged urban waste and illegal dumping "black spots" are critical urban threats affecting public health, safety, and environmental sustainability. Traditional grievance platforms are purely reactive, easily manipulated, and lack the verifiable audit trails required by corporations to confidently deploy CSR (Corporate Social Responsibility) funding for cleanups.
@@ -10,7 +9,7 @@ Unmanaged urban waste and illegal dumping "black spots" are critical urban threa
 - UrbanTriage is an intelligence and verification layer, not just a garbage classification app. It transforms raw citizen reports and CCTV feeds into verified situational awareness.
 - We distinguish between a single littered bottle (normal waste) and a severe illegal dumping threat (accumulation zone) using a custom AI vision pipeline. Once a threat is mapped, volunteers can clean it, and our AI-assisted clearance loop verifies the resolution, generating auditable proof of impact for municipal authorities and corporate sponsors.
 
-# ✨ Key Features (Hackathon MVP)
+# ✨ Key Features 
 - Intelligent Threat Scoring: Uses YOLO11 object detection to count waste items and calculate accumulation density. 3+ items or >40% image area coverage triggers a "Severe Accumulation Zone" threat.
 - Passive & Active Surveillance Modes: Accepts user-uploaded geo-tagged photos (Passive) or interfaces with live secure camera feeds (Active).
 - Situational Awareness Dashboard: Real-time translation of JSON threat payloads into dynamic heatmap markers (Red = Active Threat, Green = Verified Cleared).
