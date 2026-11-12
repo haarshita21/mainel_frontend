@@ -46,6 +46,7 @@ export default function ReportIncident() {
 
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [source, setSource] = useState<"upload" | "camera">("upload");
+  const [detectionMode, setDetectionMode] = useState<"individual" | "piled">("piled");
   const [cameraError, setCameraError] = useState<string | null>(null);
   const [cameraFacing, setCameraFacing] = useState<"environment" | "user">("environment");
   const [isFlashing, setIsFlashing] = useState(false);
@@ -415,10 +416,13 @@ export default function ReportIncident() {
     }, 1500);
 
     try {
+      const formData = new FormData();
+      formData.append("image", selectedImage);
+      formData.append("mode", detectionMode);
+
       const res = await fetch("/api/analyze-waste", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ image: selectedImage }),
+        body: formData,
       });
 
       clearTimeout(pTimer1);
@@ -621,7 +625,33 @@ export default function ReportIncident() {
               )}
             </div>
 
-            <div className="mt-12 grid gap-5 md:grid-cols-2">
+            {/* DETECTION MODE TOGGLE */}
+            <div className="mx-auto mt-8 flex max-w-fit items-center gap-2 rounded-2xl border border-white/[0.10] bg-white/[0.035] p-1.5">
+              <button
+                type="button"
+                onClick={() => setDetectionMode("individual")}
+                className={`rounded-xl px-5 py-2.5 text-xs font-semibold tracking-wide transition-all duration-200 ${
+                  detectionMode === "individual"
+                    ? "bg-[#19D879] text-[#06110D] shadow-[0_0_20px_rgba(25,216,121,0.3)]"
+                    : "bg-transparent text-[#91A99C] hover:bg-white/[0.05] hover:text-[#F4FFF8]"
+                }`}
+              >
+                Individual Waste
+              </button>
+              <button
+                type="button"
+                onClick={() => setDetectionMode("piled")}
+                className={`rounded-xl px-5 py-2.5 text-xs font-semibold tracking-wide transition-all duration-200 ${
+                  detectionMode === "piled"
+                    ? "bg-[#19D879] text-[#06110D] shadow-[0_0_20px_rgba(25,216,121,0.3)]"
+                    : "bg-transparent text-[#91A99C] hover:bg-white/[0.05] hover:text-[#F4FFF8]"
+                }`}
+              >
+                Piled-up Garbage
+              </button>
+            </div>
+
+            <div className="mt-8 grid gap-5 md:grid-cols-2">
               {/* UPLOAD PHOTO (PASSIVE) */}
               <button
                 type="button"
